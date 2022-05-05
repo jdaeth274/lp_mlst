@@ -3,7 +3,7 @@ Seq types of Legionella pneumophila assemblies
 
 ## Installation ##
 
-Install conda first install conda first [here].(https://docs.conda.io/projects/conda/en/latest/user-guide/install)
+Install conda first install conda first [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install). <br />
 Once install clone this repo:
 
 	git clone https://github.com/jdaeth274/lp_mlst
@@ -18,7 +18,7 @@ Then activate the environment with:
 	conda  activate lp_mlst_env
 
 ## Usage ##
-To find the Seq types of a collection of Legionella pneumophila assemblies, first concatenate the full paths to your 
+To find the Seq types of a collection of Legionella pneumophila assemblies, first concatenate the full paths to your <br />
 assemblies into a single file:
 
 	ls -d $PWD/*.fasta > list_of_fastas.txt
