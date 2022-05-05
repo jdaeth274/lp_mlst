@@ -7,8 +7,6 @@ import pandas
 import time
 import os
 from functools import reduce
-import datetime
-import psutil
 import pandas as pd
 
 from python import orfipy_search
@@ -114,16 +112,7 @@ def multiprocess_run(seq_lines, data_dir, aa_dir_name, threads):
     ## Set up the pool
     seq_chunked, indexes = chunks(seq_lines, threads)
     with multiprocessing.get_context(method="spawn").Pool(processes=threads) as mp_pool:
-        print_file = open("printero", "a")
-        print_file.write("Starting apply async runs " + str(datetime.datetime.now()) + "\n")
-        print_file.write("Starting mem usage (MB): " + str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2) + "\n")
-        print_file.close()
         df_list = [mp_pool.apply_async(table_getter, args=(files, data_dir, aa_dir_name, indexes[k])) for k, files in enumerate(seq_chunked)]
-        print_file = open("printero", "a")
-        print_file.write("Finishing apply async runs " + str(datetime.datetime.now()) + "\n")
-        print_file.write("End mem usage (MB): " + str(psutil.Process(os.getpid()).memory_info().rss / 1024 ** 2) + "\n")
-        print_file.write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + "\n")
-        print_file.close()
         df_res = [p.get() for p in df_list]
     mp_pool.join()
     tot_df = df_res[0]
