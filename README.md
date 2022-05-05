@@ -3,7 +3,7 @@ Seq types of Legionella pneumophila assemblies
 
 ## Installation ##
 
-Install conda first install conda first [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install)
+Install conda first install conda first [here].(https://docs.conda.io/projects/conda/en/latest/user-guide/install)
 Once install clone this repo:
 
 	git clone https://github.com/jdaeth274/lp_mlst
@@ -14,6 +14,7 @@ Then use the environment.yml file to install the dependencies with conda
 	conda env create --file=environment.yml
 
 Then activate the environment with:
+
 	conda  activate lp_mlst_env
 
 ## Usage ##
