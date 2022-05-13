@@ -13,6 +13,7 @@ def process_blast(blast_csv, gene_length, gene):
         print("No blast matches for this %s in isolate" % (gene))
         return math.nan
     else:
+        blast_res = blast_res.sort_values(by=['bitscore'], ascending=False)
         hundred_matches = blast_res[blast_res['pid'] == 100]
         if hundred_matches.empty:
             print("No perfect matches for this isolate for gene: %s"  % gene)
